@@ -1,0 +1,92 @@
+@font-face {
+  font-family: "pixel";
+  src: url(/fonts/PressStart2P-vaV7.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-image: linear-gradient(
+    90deg,
+    rgb(38, 165, 255),
+    rgb(121, 199, 255)
+  );
+  font-family: pixel, Arial, Helvetica, sans-serif;
+}
+
+.game {
+  min-height: 300px;
+  max-width: 400px;
+  display: grid;
+  gap: 30px;
+  padding: 20px;
+  background-image: linear-gradient(
+    180deg,
+    rgb(126, 145, 255),
+    rgb(59, 89, 255)
+  );
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.game-title {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.game-result {
+  height: 60px;
+  width: 100%;
+  border: none;
+  font-size: 1.6em;
+  font-family: pixel, Arial, Helvetica, sans-serif;
+  text-align: right;
+  color: greenyellow;
+}
+
+.result-choices {
+  font-size: 0.8em;
+  display: grid;
+  gap: 10px;
+}
+
+#myChoice,
+#robotChoice {
+  font-size: 2em;
+}
+
+.container-choices {
+  width: 240px;
+  display: flex;
+  gap: 10px;
+  margin: auto;
+}
+
+.game-choice {
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  background-color: rgb(255, 216, 42);
+  border: 2px solid black;
+  border-radius: 50%;
+  font-size: 2.6em;
+}
+.game-choice:hover {
+  background-color: rgb(255, 224, 86);
+  border: 2px solid rgb(43, 43, 43);
+}
+.game-choice:active {
+  transform: scale(0.9);
+}
+.game-choice:focus {
+  outline: 2px solid blue;
+}

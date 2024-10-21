@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hide and show HTML elements</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 10px;
+      }
+      .container {
+        display: grid;
+      }
+      .btn {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <h2>First Ex:</h2>
+      <button class="btn" id="btn1">Hide</button>
+      <img src="garfield.jpg" alt="Orange cat" id="firstImg" />
+    </section>
+    <hr />
+    <section class="container">
+      <h2>Second Ex:</h2>
+      <img src="seara.webp" alt="Lasagna" width="200px" id="secondImg" />
+      <button class="btn" id="btn2">Show</button>
+    </section>
+
+    <script>
+      const btn1 = document.querySelector("#btn1");
+      const btn2 = document.querySelector("#btn2");
+      const firstImg = document.querySelector("#firstImg");
+      const secondImg = document.querySelector("#secondImg");
+
+      // Hide and show first img
+      btn1.addEventListener("click", (event) => {
+        if (firstImg.style.display === "none") {
+          firstImg.style.display = "block";
+          event.target.textContent = "Hide";
+        } else {
+          firstImg.style.display = "none";
+          event.target.textContent = "Show";
+        }
+      });
+
+      // Hide and show secong img
+      secondImg.style.visibility = "hidden";
+
+      btn2.addEventListener("click", (event) => {
+        if (secondImg.style.visibility === "hidden") {
+          secondImg.style.visibility = "visible";
+          event.target.textContent = "Hide";
+        } else {
+          secondImg.style.visibility = "hidden";
+          event.target.textContent = "Show";
+        }
+      });
+    </script>
+  </body>
+</html>

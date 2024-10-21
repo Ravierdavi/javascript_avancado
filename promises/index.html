@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promises</title>
+  </head>
+  <body>
+    <script>
+      // 1. Wake Up
+      // 2. Have a breakfast
+      // 3. Brush teeth
+
+      function wakeUp() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => resolve("I woke up!"), 2000);
+        });
+      }
+      function haveBreakfast() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => resolve("I had a breakfast!"), 3000);
+        });
+      }
+      function brushTeeth() {
+        return new Promise((resolve, reject) => {
+          setTimeout(resolve("I brushed my teeth!"), 2340);
+        });
+      }
+
+      wakeUp().then((value) => {
+        console.log(value);
+        haveBreakfast().then((value) => {
+          console.log(value);
+          brushTeeth().then((value) => console.log(value));
+        });
+      });
+    </script>
+  </body>
+</html>

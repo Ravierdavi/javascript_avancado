@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Background</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #65b465;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #btn {
+            cursor: pointer;
+            width: 150px;
+            height: 100px;
+            background-color: #90ee90;
+            border-radius: 15px;
+            border: 3px solid black;
+            font-size: 2em;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id="btn">Click Me 😃</button>
+    </div>
+
+    <script>
+        const btn = document.querySelector("#btn")
+        const container = document.querySelector("#container")
+
+        btn.addEventListener("click", event => {
+            event.target.textContent = "OUCH! 🙄"
+            event.target.style.backgroundColor = "#ff6347"
+            container.style.backgroundColor = "#bd4b37"
+        })
+
+        btn.addEventListener("mouseover", event => {
+            event.target.textContent = "Don't do it! 🤨"
+            event.target.style.backgroundColor = "#ffff4a"
+            container.style.backgroundColor = "#ffff00"
+        })
+
+        btn.addEventListener("mouseout", event => {
+            event.target.textContent = "Click Me 😃"
+            event.target.style.backgroundColor = "#90ee90"
+            container.style.backgroundColor = "#65b465"
+        })
+    </script>
+</body>
+</html>

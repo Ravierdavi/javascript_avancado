@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider - Carros</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+      }
+      .slider {
+        overflow: hidden;
+      }
+      .slider button {
+        font-size: 2em;
+      }
+      .slide {
+        max-width: 400px;
+        width: 100%;
+        display: none;
+      }
+      img.displaySlide {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <div class="slides">
+        <img class="slide" src="relampago-car.jpg" alt="Car 1" />
+        <img class="slide" src="blue-car.png" alt="Car 2" />
+        <img class="slide" src="yellow-car.png" alt="Car 3" />
+      </div>
+      <button class="prev" onclick="prevSlide()"><</button>
+      <button class="next" onclick="nextSlide()">></button>
+    </div>
+
+    <script>
+      const slides = document.querySelectorAll(".slide");
+      let slideIndex = 0;
+      let intervalId = null;
+
+      document.addEventListener("DOMContentLoaded", initializeSlider);
+
+      function initializeSlider() {
+        slides[slideIndex].classList.add("displaySlide");
+        intervalId = setInterval(nextSlide, 4000);
+      }
+
+      function showSlide(index) {
+        if(slideIndex >= slides.length) {
+            slideIndex = 0;
+        } else if(slideIndex < 0) {
+            slideIndex = slides.length - 1;
+        }
+
+        slides.forEach((slide) => slide.classList.remove("displaySlide"));
+        slides[slideIndex].classList.add("displaySlide");
+      }
+
+      function prevSlide() {
+        clearInterval(intervalId)
+        slideIndex--
+        showSlide(slideIndex)
+      }
+
+      function nextSlide() {
+        slideIndex++;
+        showSlide(slideIndex);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async/Await</title>
+  </head>
+  <body>
+    <script>
+      async function playGames() {
+        function brawl() {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              const playBrawl = true;
+
+              if (playBrawl) {
+                resolve("I play Brawl Stars!");
+              } else {
+                reject("I don't play Brawl Stars.");
+              }
+            }, 3240);
+          });
+        };
+
+        console.log(await brawl());
+      }
+
+      playGames();
+    </script>
+  </body>
+</html>

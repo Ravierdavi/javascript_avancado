@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nodelists</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      }
+      .myBoxes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 140px;
+        height: 80px;
+        margin: 10px;
+        border: 4px solid rgb(33, 179, 53);
+        border-radius: 15px;
+        background-color: rgb(73, 250, 73);
+        font-size: 2em;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="myBoxes">Box 1</div>
+    <div class="myBoxes">Box 2</div>
+    <div class="myBoxes">Box 3</div>
+    <div class="myBoxes">Box 4</div>
+
+    <script>
+      let myBoxes = document.querySelectorAll(".myBoxes");
+      myBoxes.forEach((box) => {
+        // Remove a box
+        box.addEventListener("click", (event) => {
+          event.target.remove();
+          myBoxes = document.querySelectorAll(".myBoxes");
+          updateTextBox();
+        });
+
+        // Change the background and border color
+        box.addEventListener("mouseover", (event) => {
+          event.target.style.borderColor = "rgb(212, 28, 28)";
+          event.target.style.backgroundColor = "rgb(255, 66, 66)";
+        });
+
+        // Back change
+        box.addEventListener("mouseout", (event) => {
+          event.target.style.borderColor = "rgb(33, 179, 53)";
+          event.target.style.backgroundColor = "rgb(73, 250, 73)";
+        });
+      });
+
+      function updateTextBox() {
+        let i = 0;
+        myBoxes.forEach((box) => {
+          i++;
+          box.textContent = `Box ${i}`;
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback Hell</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container-code {
+        width: 400px;
+        height: 600px;
+        padding: 15px;
+        background-color: black;
+        border: 5px solid #999999;
+        border-radius: 30px;
+        color: white;
+      }
+      .title {
+        margin-bottom: 20px;
+        font: 700 2.2em "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        text-align: center;
+      }
+      .list {
+        font: 700 1.4em monospace;
+      }
+      li {
+        margin-bottom: 10px;
+        list-style-type: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-code">
+      <h1 class="title">My tasks</h1>
+      <ul class="list" style="">
+        <li>It'll start ...</li>
+      </ul>
+    </div>
+
+    <script>
+      const list = document.querySelector(".list");
+
+      function task1(callback) {
+        list.removeChild(document.querySelector(".list li"));
+        const element = document.createElement("li");
+        element.textContent = "The task 1 was complete!";
+        list.appendChild(element);
+        callback();
+      }
+      function task2(callback) {
+        const element = document.createElement("li");
+        element.textContent = "The task 2 was complete!";
+        list.appendChild(element);
+        callback();
+      }
+      function task3(callback) {
+        const element = document.createElement("li");
+        element.textContent = "The task 3 was complete!";
+        list.appendChild(element);
+        callback();
+      }
+      function task4(callback) {
+        const element = document.createElement("li");
+        element.textContent = "The task 4 was complete!";
+        list.appendChild(element);
+        callback();
+      }
+
+      setTimeout(() => {
+        task1(
+          setTimeout(() => {
+            task2(
+              setTimeout(() => {
+                task3(
+                  setTimeout(() => {
+                    task4(() => {
+                      const element = document.createElement("li");
+                      element.textContent = "All tasks was complete.";
+                      list.appendChild(element);
+                    });
+                  }, 1500)
+                );
+              }, 3000)
+            );
+          }, 1000)
+        );
+      }, 2000);
+
+      list.appendChild(element);
+    </script>
+  </body>
+</html>

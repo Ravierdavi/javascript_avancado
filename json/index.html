@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON</title>
+  </head>
+  <body>
+    <script>
+      const names = ["Robert", "Davi", "Robson"];
+      const jsonNames = JSON.stringify(names);
+      console.log(jsonNames);
+
+      const jsonPeople = [
+        {
+          name: "Peirro",
+          job: "Doctor",
+        },
+        {
+          name: "Tesco",
+          job: "Programer",
+        },
+      ];
+      const people = JSON.parse(jsonNames);
+      console.log(jsonPeople);
+    </script>
+  </body>
+</html>

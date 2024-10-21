@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedra, Papel e Tesoura</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game">
+      <h1 class="game-title">Pedra, Papel e Tesoura</h1>
+      <input
+        type="text"
+        id="gameResult"
+        class="game-result"
+        value="+0"
+        readonly
+      />
+      <section class="result-choices">
+        <div class="choices">🧑 Sua escolha: <span id="myChoice"></span></div>
+        <div class="choices">
+          🤖 Escolha do robô: <span id="robotChoice"></span>
+        </div>
+      </section>
+      <section class="container-choices">
+        <button class="game-choice" aria-label="Pedra">👊</button>
+        <button class="game-choice" aria-label="Papel">✋</button>
+        <button class="game-choice" aria-label="Tesoura">✌</button>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

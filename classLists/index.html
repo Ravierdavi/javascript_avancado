@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>classLists</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      #myBtn {
+        padding: 10px 15px;
+        border-radius: 10px;
+        border-width: 3px;
+        border-style: solid;
+        font-size: 2em;
+        cursor: pointer;
+      }
+
+      .enable {
+        border-color: hsl(209, 100%, 60%);
+        background-color: hsl(210, 100%, 70%);
+        color: white;
+      }
+
+      .disable {
+        border-color: hsl(0, 0%, 50%);
+        background-color: hsl(0, 0%, 60%);
+        color: hsl(0, 0%, 80%);
+      }
+    </style>
+  </head>
+  <body>
+    <button class="disable" id="myBtn">Click</button>
+
+    <script>
+      const btn = document.querySelector("#myBtn");
+      let oldClass = "enable";
+      let newClass = "disable";
+
+      btn.addEventListener("click", (event) => {
+        [oldClass, newClass] = [newClass, oldClass];
+        event.target.classList.replace(oldClass, newClass);
+        console.log(oldClass, newClass);
+      });
+    </script>
+  </body>
+</html>

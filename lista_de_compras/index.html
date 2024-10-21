@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Testes</title>
+  </head>
+  <body>
+    <h1>Lista de compras</h1>
+
+    <input type="text" id="inp" />
+    <button type="submit" id="btn">Colocar</button>
+
+    <ol id="list-container">
+      <li class="item">Banana</li>
+      <li class="item">Maçã</li>
+    </ol>
+
+    <script>
+      const inp = document.querySelector("#inp");
+      const btn = document.querySelector("#btn");
+      const list = document.getElementById("list-container");
+
+      btn.addEventListener("click", () => {
+        const items = [...list.children].map((item) => item.textContent);
+        const textListItem = inp.value.trim();
+        if (textListItem !== "" && !items.includes(textListItem)) {
+          addItemToList(textListItem);
+        }
+      });
+
+      function addItemToList(text) {
+        const newListItem = document.createElement("li");
+        newListItem.textContent = text;
+        newListItem.classList.add("item");
+        list.appendChild(newListItem);
+      }
+    </script>
+  </body>
+</html>

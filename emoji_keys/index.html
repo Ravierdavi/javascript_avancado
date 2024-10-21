@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emoji Keys</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .emoji-box {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aqua;
+        font-size: 3.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="emoji-box" id="box">😀</div>
+
+    <script>
+      const box = document.querySelector("#box");
+      const incrementPx = 10;
+      let y = 0;
+      let x = 0;
+      // Box change
+      document.addEventListener("keydown", (event) => {
+        box.style.backgroundColor = "tomato";
+        box.textContent = "😠";
+      });
+
+      // Back box change
+      document.addEventListener("keyup", (event) => {
+        box.style.backgroundColor = "aqua";
+        box.textContent = "😀";
+      });
+
+      // Move box
+      document.addEventListener("keydown", (event) => {
+        if (event.key.startsWith("Arrow")) {
+          switch (event.key) {
+            case "ArrowUp":
+              y -= incrementPx;
+              break;
+            case "ArrowDown":
+              y += incrementPx;
+              break;
+            case "ArrowLeft":
+              x -= incrementPx;
+              break;
+            case "ArrowRight":
+              x += incrementPx;
+              break;
+          }
+
+          box.style.transform = `translate(${x}px, ${y}px)`;
+        }
+      });
+    </script>
+  </body>
+</html>
